@@ -5,7 +5,12 @@ using UnityEngine;
 public class RockHit : MonoBehaviour
 {
     public GameObject rockHitEffect;
-    public static int damageAmount = 1;
+    public static int damageAmount;
+
+    private void Start()
+    {
+        damageAmount = PlayerPrefs.GetInt("Damage");
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")

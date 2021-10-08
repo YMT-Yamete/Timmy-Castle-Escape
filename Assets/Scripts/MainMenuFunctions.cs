@@ -10,12 +10,11 @@ public class MainMenuFunctions : MonoBehaviour
     public AudioSource buttonPressed;
     public GameObject totalGemText;
 
+    public GameObject shopPanel;
+
     private void Start()
     {
-        if (PlayerPrefs.GetInt("totalGems") != 0)
-        {
-            totalGemText.GetComponent<TMPro.TextMeshProUGUI>().text = "Gems: " + PlayerPrefs.GetInt("totalGems").ToString();
-        }
+        totalGemText.GetComponent<TMPro.TextMeshProUGUI>().text = "Gems: " + PlayerPrefs.GetInt("totalGems").ToString();
         Debug.Log("Total Gems: " + PlayerPrefs.GetInt("totalGems"));
     }
     private void Update()
@@ -38,6 +37,13 @@ public class MainMenuFunctions : MonoBehaviour
     {
         buttonPressed.Play();
         mainMenuPanel.SetActive(true);
+        shopPanel.SetActive(false);
         levelSelectPanel.SetActive(false);
+    }
+    public void shop()
+    {
+        buttonPressed.Play();
+        mainMenuPanel.SetActive(false);
+        shopPanel.SetActive(true);
     }
 }

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossSpawn : MonoBehaviour
 {
     public GameObject Boss;
+    public GameObject bossHealthBar;
     void Start()
     {
         
@@ -21,6 +23,7 @@ public class BossSpawn : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Boss.SetActive(true);
+            bossHealthBar.SetActive(true);
         }
     }
 }

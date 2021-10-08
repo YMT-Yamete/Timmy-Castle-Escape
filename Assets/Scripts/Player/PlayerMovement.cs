@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public GameObject gameChar;
     private Vector3 direction;
-    public float speed = 8;
+    public float speed = 10;
     public float jumpForce = 12;
     public float gravity = -20;
     public Transform groundCheck;
@@ -19,12 +19,12 @@ public class PlayerMovement : MonoBehaviour
     public GameObject joystickHandle;
     public bool jumpStatus = false;
     public bool attackStatus = false;
-
     public Animator animator;
 
     void Start()
     {
-        
+        jumpForce = PlayerPrefs.GetFloat("JumpForce");
+        speed = PlayerPrefs.GetFloat("Speed");
     }
 
     // Update is called once per frame
